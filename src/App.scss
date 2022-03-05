@@ -1,0 +1,41 @@
+$navbar-bg-color: #282c34;
+$navbar-color: #fff;
+$dashboard-bg-color: #fff;
+
+#container-notfound{
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    font-size: 1.2rem;
+  }
+}
+
+#container-dashboard {
+  padding-right: 1rem;
+  padding-left: 1rem;
+
+  .dashboard-body {
+    background-color: $dashboard-bg-color;
+    min-height: 100vh;
+    padding: 30px;
+
+    .component-container {
+      width: 100%;
+
+      .container-breadcrumb {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .container-navbar {
+    background-color: $navbar-bg-color;
+    color: $navbar-color;
+    padding: 18px;
+  }
+}

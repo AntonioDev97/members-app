@@ -1,0 +1,25 @@
+$color-background: #f4f4f4;
+$color-login: #fff;
+
+.container {
+    display: flex;
+    background-color: $color-background;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    .login-row {
+        background-color: $color-login;
+        width: 490px;
+        padding: 20px 0;
+        margin: auto 15px;
+
+        .bx--row {
+            margin: 18px 0;
+        }
+
+        .bx--fieldset {
+            margin-bottom: 0;
+        }
+    }
+}

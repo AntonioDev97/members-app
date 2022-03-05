@@ -1,0 +1,26 @@
+[
+    {
+        "key": "id",
+        "header": "id"
+    },
+    {
+        "key": "firstName",
+        "header": "First Name"
+    },
+    {
+        "key": "lastName",
+        "header": "Last Name"
+    },
+    {
+        "key": "email",
+        "header": "Email"
+    },
+    {
+        "key": "classCompletionDate",
+        "header": "Class Completion Date"
+    },
+    {
+        "key": "role",
+        "header": "Role"
+    }
+]
