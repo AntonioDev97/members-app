@@ -43,7 +43,7 @@ const TableList = () => {
                 const ListResponse = await AxiosAction.get(endpoint, token);
                 let Members = ListResponse.data?.data;
                 Members = TransformMemberDataList(Members);
-                console.log(Members);
+                console.log('Members list', Members);
                 dispatch({ type: 'SET_MEMBER_LIST', payload: Members });
                 onSetSkeleton(false);
             } catch (error) {

@@ -9,21 +9,20 @@ import {
     SelectItem,
     TextInput 
 } from 'carbon-components-react';
-
 import PropTypes from 'prop-types';
-import { Save32 } from '@carbon/icons-react';
+import { Save32, TrashCan32 } from '@carbon/icons-react';
 import TagList from '../TagList';
-import './Form.style.scss';
 import { useForm } from '../../hooks/useForm';
+import './Form.style.scss';
 
-const Form = ({ role, data, onFormSubmit }) => {
+const Form = ({ role, data, onFormSubmit, onInvalid, onDelete }) => {
     const { 
         form, formError,
         handleChange,
         handleClassDateChange,
         handleRemoveSkill,
         handleSubmit,
-    } = useForm(data, onFormSubmit);
+    } = useForm(data, onFormSubmit, onInvalid);
 
     return (
         <FormCarbon className='container-form' onSubmit={handleSubmit} >
@@ -56,6 +55,14 @@ const Form = ({ role, data, onFormSubmit }) => {
                     { role === 'admin' && <SelectItem value='admin' text='Admin'/> }
                 </Select>
                 <Button type='submit' renderIcon={Save32}> Save </Button>
+                { role === 'admin' && data &&
+                <Button 
+                className='delete-member-button' 
+                kind='danger' 
+                renderIcon={TrashCan32}
+                onClick={onDelete}>
+                    Delete 
+                </Button> }
             </FormGroup>
         </FormCarbon>
     );
@@ -64,6 +71,8 @@ const Form = ({ role, data, onFormSubmit }) => {
 Form.propTypes = {
     role: PropTypes.string.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
+    onDelete: PropTypes.func,
+    onInvalid: PropTypes.func.isRequired,
     data: PropTypes.object
 };
 

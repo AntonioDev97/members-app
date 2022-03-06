@@ -12,9 +12,19 @@ export const AxiosAction = {
         const request = axios.post(BaseUrl + endpoint, body, Config);
         return request;
     },
+    put: (endpoint, body, token=null) => {
+        if (token) Config.headers.Authorization = token;
+        const request = axios.put(BaseUrl + endpoint, body, Config);
+        return request;
+    },
     get: (endpoint, token=null) => {
         if (token) Config.headers.Authorization = token;
         const request = axios.get(BaseUrl + endpoint, Config);
+        return request;
+    },
+    delete: (endpoint, token=null) => {
+        if (token) Config.headers.Authorization = token;
+        const request = axios.delete(BaseUrl + endpoint, Config);
         return request;
     }
 };

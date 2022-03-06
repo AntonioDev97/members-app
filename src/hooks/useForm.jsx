@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { 
     MemberModel,
     MemberModelError,
     MemberValidations
 } from '../models/member.model';
 
-export const useForm = (data, onFormSubmit) => {
-    const [form, setForm] = useState(data ? data : { ...MemberModel });
+export const useForm = (data, onFormSubmit, onInvalid) => {
+    const [form, setForm] = useState(MemberModel);
     const [formError, setFormError] = useState(MemberModelError);
+    useEffect(() => { if (data) setForm(data) }, [data]);
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -40,7 +41,7 @@ export const useForm = (data, onFormSubmit) => {
             if (form[formItem] === '') isInvalidForm = true;
         });
         if (!isInvalidForm) onFormSubmit(form);
-        else alert('Invalid Form');
+        else onInvalid();
     };
 
     return {

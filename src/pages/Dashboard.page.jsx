@@ -30,7 +30,7 @@ const DashboardPage = () => {
     const renderComponent = () => {
         const components = {
             add: () => <Add/>,
-            view: () => <View id={id}/>
+            view: () => <View id={id} />
         }
         return components[location] ? components[location]() : <TableList/>;
     };

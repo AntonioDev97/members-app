@@ -9,6 +9,7 @@ const initialValue = {
     member: null,
     token: null,
     member_list: null,
+    member_by_id: null,
     error: null,
 };
 const reducer = (state, action) => {
@@ -18,7 +19,8 @@ const reducer = (state, action) => {
         SET_MEMBER: () => ({ ...state, member: payload.member, token: payload.token }),
         SET_TOKEN: () => ({ ...state, token: payload.token }),
         SET_MEMBER_LIST: () => ({ ...state, member_list: payload }),
-        SET_LOGOUT: () => ({ ...state, member: null, ...initialValue }),
+        SET_MEMBER_BY_ID: () => ({ ...state, member_by_id: payload }),
+        SET_LOGOUT: () => ({ ...state, ...initialValue }),
         SET_ERROR: () => ({ ...state, error: payload }),
     };
     return types[type] ? types[type]() : state;
